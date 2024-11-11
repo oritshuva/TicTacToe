@@ -16,7 +16,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
     String turn;
-    String [] [] board;
+    String[][] board;
     int count;
 
     @Override
@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
     private void onNewGame() {
         board = new String[3][3];
         for (int row = 0; row < 3; row++)
@@ -34,37 +35,37 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    void onButtonClick(View view)
-    {
+    public void onButtonClick(View view) {
         if (view.getId() == R.id.btn_00) {
             handleClick(0, 0, R.id.btn_00);
         }
-        if (view.getId() == R.id.btn_01){
+        if (view.getId() == R.id.btn_01) {
             handleClick(0, 1, R.id.btn_01);
         }
-        if(view.getId() == R.id.btn_02) {
+        if (view.getId() == R.id.btn_02) {
             handleClick(0, 2, R.id.btn_02);
         }
-        if(view.getId() == R.id.btn_10) {
+        if (view.getId() == R.id.btn_10) {
             handleClick(1, 0, R.id.btn_10);
         }
-        if(view.getId() == R.id.btn_11) {
+        if (view.getId() == R.id.btn_11) {
             handleClick(1, 1, R.id.btn_11);
         }
-        if(view.getId() == R.id.btn_12) {
+        if (view.getId() == R.id.btn_12) {
             handleClick(1, 2, R.id.btn_12);
         }
-        if(view.getId() == R.id.btn_20) {
+        if (view.getId() == R.id.btn_20) {
             handleClick(2, 0, R.id.btn_20);
         }
-        if(view.getId() == R.id.btn_21) {
+        if (view.getId() == R.id.btn_21) {
             handleClick(2, 1, R.id.btn_21);
         }
-        if(view.getId() == R.id.btn_22){
+        if (view.getId() == R.id.btn_22) {
             handleClick(2, 2, R.id.btn_22);
         }
 
     }
+
     private void handleClick(int row, int col, int id) {
         if (board[row][col].equals("")) {
             board[row][col] = turn;
@@ -73,11 +74,14 @@ public class MainActivity extends AppCompatActivity {
             onTurnEnd();
         }
     }
+
     Boolean isWinner() {
         return false;
     }
+
     void endGame(String s) {
     }
+
     private void onTurnEnd() {
         if (isWinner())
             endGame(turn + " won!");
@@ -90,8 +94,10 @@ public class MainActivity extends AppCompatActivity {
             turn = (turn.equals("X") ? "O" : "X");
         }
     }
+
     @Override
-            public void onBackPressed() {
+    public void onBackPressed() {
+        super.onBackPressed();
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("More Info");
         String msg = "This is the message body";
@@ -105,16 +111,13 @@ public class MainActivity extends AppCompatActivity {
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick (DialogInterface dialogInterface,int i){
+            public void onClick(DialogInterface dialogInterface, int i) {
 // Cancel handling
 
             }
-        }) ;
+        });
+
         AlertDialog dialog = builder.show();
 
     }
-
-
-
-
 }

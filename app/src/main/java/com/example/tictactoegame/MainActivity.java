@@ -99,6 +99,32 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
+    private void resetGame() {
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                board[row][col] = ""; // איפוס המטריצה
+            }
+        }
+
+        // איפוס כפתורי הלוח
+        int[][] buttonIds = {
+                {R.id.btn_00, R.id.btn_01, R.id.btn_02},
+                {R.id.btn_10, R.id.btn_11, R.id.btn_12},
+                {R.id.btn_20, R.id.btn_21, R.id.btn_22}
+        };
+
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                Button button = findViewById(buttonIds[row][col]);
+                button.setText(""); // איפוס הטקסט בכפתור
+            }
+        }
+
+        // איפוס תור השחקן וספירת המהלכים
+        turn = "X";
+        count = 0;
+    }
+
 
 
 

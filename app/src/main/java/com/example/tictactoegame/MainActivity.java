@@ -79,16 +79,28 @@ public class MainActivity extends AppCompatActivity {
 
     Boolean isWinner() {
         Log.e("isWinner","line 81");
-        if(board[0][0].equals("X") && board[0][1].equals("X") && board[0][2].equals("X"))
+        if(board[0][0] == board[0][1] &&  board[0][1] == board[0][2])
             return true;
-        if(board[1][0].equals("X") && board[1][1].equals("X") && board[1][2].equals("X"))
+        if(board[1][0] == board[1][1] &&  board[1][1] == board[1][2])
             return true;
-        if(board[2][0].equals("X") && board[2][1].equals("X") && board[2][2].equals("X"))
+        if(board[2][0] == board[2][1] &&  board[2][1] == board[2][2])
             return true;
-
+        if(board[0][0] == board[1][0] && board[1][0] ==board[2][0])
+            return true;
+        if(board[0][1] == board[1][0] && board[1][0] == board[2][0])
+            return true;
+        if(board[0][2] == board[1][2] && board[1][2] == board[2][2])
+            return true;
+        if(board[0][0] == board[1][1] && board[1][1] == board[2][2])
+            return true;
+        if(board[0][2] == board[1][1] && board[1][1] == board[2][0])
+            return true;
 
         return false;
     }
+
+
+
 
 
 

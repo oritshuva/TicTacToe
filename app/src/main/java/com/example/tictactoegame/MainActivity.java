@@ -79,6 +79,13 @@ public class MainActivity extends AppCompatActivity {
 
     Boolean isWinner() {
         Log.e("isWinner","line 81");
+        if(board[0][0].equals("X") && board[0][1].equals("X") && board[0][2].equals("X"))
+            return true;
+        if(board[1][0].equals("X") && board[1][1].equals("X") && board[1][2].equals("X"))
+            return true;
+        if(board[2][0].equals("X") && board[2][1].equals("X") && board[2][2].equals("X"))
+            return true;
+
 
         return false;
     }
@@ -103,8 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("More Info");
-        String msg = "This is the message body";
-        builder.setMessage(msg);
+        builder.setMessage(s);
         builder.setPositiveButton("EXIT", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

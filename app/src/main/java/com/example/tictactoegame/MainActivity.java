@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         for (int row = 0; row < 3; row++)
             for (int col = 0; col < 3; col++)
                 board[row][col] = new String();
-        turn = "x";
+        turn = "X";
         count = 0;
     }
 
@@ -83,8 +83,7 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-    void endGame(String s) {
-    }
+
 
     private void onTurnEnd() {
         if (isWinner())
@@ -99,9 +98,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
+    void endGame(String s)
+    {
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("More Info");
         String msg = "This is the message body";
